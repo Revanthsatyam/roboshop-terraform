@@ -1,5 +1,4 @@
 components= {
-  default = {
     frontend = {
       name = "frontend"
       instance_type = "t3.small"
@@ -41,7 +40,6 @@ components= {
       instance_type = "t3.small"
     }
   }
-}
 
 zone_id = "Z016529012O8LO70UGVHH"
 security_groups = [ "sg-0d4b222d581ee6fa6" ]
