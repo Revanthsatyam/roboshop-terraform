@@ -1,3 +1,9 @@
+default_vpc_id = "vpc-0c3a53aaeae9248f3"
+default_vpc_cidr = "172.31.0.0/16"
+default_vpc_route_table_id = "rtb-07a581a9c55f6d200"
+zone_id = "Z016529012O8LO70UGVHH"
+env = "dev"
+
 vpc = {
   main = {
     cidr = "10.0.0.0/16"
@@ -18,10 +24,6 @@ vpc = {
   }
 }
 
-default_vpc_id = "vpc-0c3a53aaeae9248f3"
-default_vpc_cidr = "172.31.0.0/16"
-default_vpc_route_table_id = "rtb-07a581a9c55f6d200"
-
 tags = {
   company_name = "ABC Tech"
   business_unit = "Ecommerce"
@@ -29,8 +31,6 @@ tags = {
   cost_center = "ecom_rs"
   created_by = "terraform"
 }
-
-env = "dev"
 
 alb = {
   public = {
@@ -84,5 +84,12 @@ elasticache = {
     node_type        = "cache.t3.micro"
     num_cache_nodes  = 1
     engine_version   = "6.2"
+  }
+}
+
+rabbitmq = {
+  main = {
+    ssh_ingress_cidr = ["172.31.28.60"]
+    instance_type = "t3.small"
   }
 }
