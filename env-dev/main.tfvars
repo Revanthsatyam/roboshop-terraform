@@ -1,8 +1,9 @@
-default_vpc_id = "vpc-0c3a53aaeae9248f3"
-default_vpc_cidr = "172.31.0.0/16"
+default_vpc_id             = "vpc-0c3a53aaeae9248f3"
+default_vpc_cidr           = "172.31.0.0/16"
 default_vpc_route_table_id = "rtb-07a581a9c55f6d200"
-zone_id = "Z016529012O8LO70UGVHH"
-env = "dev"
+zone_id                    = "Z016529012O8LO70UGVHH"
+env                        = "dev"
+ssh_ingress_cidr           = ["172.31.28.60/32"]
 
 vpc = {
   main = {
@@ -89,7 +90,13 @@ elasticache = {
 
 rabbitmq = {
   main = {
-    ssh_ingress_cidr = ["172.31.28.60/32"]
     instance_type = "t3.small"
+  }
+}
+
+apps = {
+  frontend = {
+    instance_type = "t3.micro"
+    port = 80
   }
 }
