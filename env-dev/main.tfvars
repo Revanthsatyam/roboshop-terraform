@@ -5,6 +5,7 @@ zone_id                    = "Z016529012O8LO70UGVHH"
 env                        = "dev"
 ssh_ingress_cidr           = ["172.31.28.60/32"]
 monitoring_ingress_cidr    = ["172.31.84.248/32"]
+az                         = ["us-east-1a", "us-east-1b"]
 
 vpc = {
   main = {

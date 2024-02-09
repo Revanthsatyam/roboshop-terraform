@@ -99,7 +99,7 @@ module "rabbitmq" {
 }
 
 module "app" {
-  #depends_on = [module.docdb, module.alb, module.elasticache, module.rabbitmq, module.rds]
+  depends_on = [module.docdb, module.alb, module.elasticache, module.rabbitmq, module.rds]
   source  = "git::https://github.com/Revanthsatyam/tf-module-app.git"
 
   tags                    = merge(var.tags, each.value["tags"])
@@ -108,6 +108,7 @@ module "app" {
   ssh_ingress_cidr        = var.ssh_ingress_cidr
   default_vpc_id          = var.default_vpc_id
   monitoring_ingress_cidr = var.monitoring_ingress_cidr
+  az                      = var.az
 
   for_each         = var.apps
   component        = each.key
