@@ -6,6 +6,7 @@ env                        = "dev"
 ssh_ingress_cidr           = ["172.31.28.60/32"]
 monitoring_ingress_cidr    = ["172.31.84.248/32"]
 az                         = ["us-east-1a", "us-east-1b"]
+acm_certificate_arn        = "arn:aws:acm:us-east-1:369896808580:certificate/d5977514-7292-47d9-817a-ceaada11d095"
 
 vpc = {
   main = {
