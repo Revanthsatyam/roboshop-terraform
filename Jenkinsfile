@@ -2,7 +2,7 @@ pipeline {
   agent any
 
   options {
-    ansicolor('xterm')
+    ansiColor('xterm')
   }
 
   parameters {
