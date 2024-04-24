@@ -1,51 +1,15 @@
-vpc_security_group_ids= ["sg-0f15c7e71393537f6"]
-
-zone_id = "Z09651852G8MXYMFFQDTV"
-
-
-components = {
-  frontend = {
-    name          = "frontend"
-    instance_type = "t3.micro"
-  }
-  mongodb = {
-    name          = "mongodb"
-    instance_type = "t3.micro"
-  }
-  catalogue = {
-    name          = "catalogue"
-    instance_type = "t3.micro"
-  }
-  redis = {
-    name          = "redis"
-    instance_type = "t3.micro"
-  }
-  user = {
-    name          = "user"
-    instance_type = "t3.micro"
-  }
-  cart = {
-    name          = "cart"
-    instance_type = "t3.micro"
-  }
-  mysql = {
-    name          = "mysql"
-    instance_type = "t3.micro"
-  }
-  shipping = {
-    name          = "shipping"
-    instance_type = "t3.micro"
-  }
-  rabbitmq = {
-    name          = "rabbitmq"
-    instance_type = "t3.micro"
-  }
-  payment = {
-    name          = "payment"
-    instance_type = "t3.micro"
-  }
-  dispatch = {
-    name          = "dispatch"
-    instance_type = "t3.micro"
+variable "vpc" {
+  default = {
+    main = {
+      cidr = "10.0.0.0/16"
+      subnets = {
+        public1 = { cidr = "10.0.0.0/16", az = "us-east-1a" }
+        public2 = { cidr = "10.0.1.0/16", az = "us-east-1b" }
+        app1 = { cidr = "10.0.2.0/16", az = "us-east-1a" }
+        app2 = { cidr = "10.0.3.0/16", az = "us-east-1b" }
+        db1 = { cidr = "10.0.2.0/16", az = "us-east-1a" }
+        db2 = { cidr = "10.0.3.0/16", az = "us-east-1b" }
+      }
+    }
   }
 }
