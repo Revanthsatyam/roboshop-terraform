@@ -5,3 +5,7 @@ module "components" {
   cidr     = each.value["cidr"]
   subnets = each.value["subnets"]
 }
+
+output "subnet" {
+  value = module.components
+}
