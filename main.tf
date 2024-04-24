@@ -6,6 +6,6 @@ module "components" {
   subnets  = each.value["subnets"]
 }
 
-output "components" {
-  value = module.components
-}
+#output "components" {
+#  value = module.components
+#}
