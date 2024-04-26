@@ -5,3 +5,4 @@ module "vpc" {
   cidr                       = each.value["cidr"]
   subnets                    = each.value["subnets"]
 }
+
