@@ -19,5 +19,5 @@ vpc = {
 }
 
 default_vpc_id             = "vpc-0704dade9610c31b7"
-default_vpc_cidr           = "172.31.16.110"
+default_vpc_cidr           = "172.31.0.0/16"
 default_vpc_route_table_id = "rtb-0da9b051f5b28b71b"
