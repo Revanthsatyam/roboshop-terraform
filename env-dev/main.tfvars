@@ -46,14 +46,3 @@ alb = {
     sg_ingress_cidr = ["10.0.0.0/16", "172.31.0.0/16"]
   }
 }
-
-docdb = {
-  main = {
-    sg_ingress_cidr         = ["10.0.0.0/16"]
-    backup_retention_period = 5
-    preferred_backup_window = "07:00-09:00"
-    skip_final_snapshot     = true
-    engine_version          = "4.0.0"
-    engine_family           = "docdb4.0"
-  }
-}
