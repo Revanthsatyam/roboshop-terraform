@@ -44,7 +44,7 @@ module "docdb" {
 }
 
 module "rds" {
-  source = "git::https://github.com/Revanthsatyam/tf-module-docdb.git"
+  source = "git::https://github.com/Revanthsatyam/tf-module-rds.git"
   tags   = var.tags
   env    = var.env
 
