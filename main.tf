@@ -100,7 +100,7 @@ module "app" {
   source           = "git::https://github.com/Revanthsatyam/tf-module-app.git"
   tags             = var.tags
   env              = var.env
-  #zone_id          = var.zone_id
+  zone_id          = var.zone_id
   ssh_ingress_cidr = var.ssh_ingress_cidr
 
   for_each         = var.app
