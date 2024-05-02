@@ -96,28 +96,5 @@ module "alb" {
 #  ssh_ingress_cidr = var.ssh_ingress_cidr
 #}
 
-module "app" {
-  source = "git::https://github.com/Revanthsatyam/tf-module-app.git"
-
-  tags             = var.tags
-  env              = var.env
-  zone_id          = var.zone_id
-  ssh_ingress_cidr = var.ssh_ingress_cidr
-
-  for_each         = var.app
-  component        = each.key
-  port             = each.value["port"]
-  instance_type    = each.value["instance_type"]
-  desired_capacity = each.value["desired_capacity"]
-  max_size         = each.value["max_size"]
-  min_size         = each.value["min_size"]
-
-  vpc_id          = local.vpc_id
-  sg_ingress_cidr = local.app_subnets_cidr
-  subnet_ids      = local.app_subnets
-
-  alb_name = lookup(lookup(lookup(module.alb, "private", null), "alb", null), "dns_name", null)
-}
-
 
 
