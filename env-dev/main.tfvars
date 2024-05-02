@@ -95,7 +95,7 @@ rabbitmq = {
 
 app = {
   frontend = {
-    instance = "t3.micro"
-    port     = 80
+    instance_type = "t3.micro"
+    port          = 80
   }
 }
