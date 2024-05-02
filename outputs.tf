@@ -1,3 +1,3 @@
 output "alb" {
-  value = module.alb
+  value = lookup(lookup(lookup(lookup(module.alb, "private", null), "alb", null), "aws_lb_listener", null), "arn", null)
 }
