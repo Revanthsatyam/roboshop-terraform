@@ -112,6 +112,7 @@ module "app" {
   min_size         = each.value["min_size"]
   #priority         = each.value["priority"]
 
+
   vpc_id          = local.vpc_id
   sg_ingress_cidr = local.app_subnets_cidr
   subnet_ids      = local.app_subnets
