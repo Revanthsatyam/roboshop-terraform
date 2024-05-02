@@ -110,7 +110,7 @@ module "app" {
   desired_capacity = each.value["desired_capacity"]
   max_size         = each.value["max_size"]
   min_size         = each.value["min_size"]
-  #priority         = each.value["priority"]
+  priority         = each.value["priority"]
 
 
   vpc_id          = local.vpc_id
@@ -118,7 +118,7 @@ module "app" {
   subnet_ids      = local.app_subnets
 
   alb_name = lookup(lookup(lookup(module.alb, "private", null), "alb", null), "dns_name", null)
-  #alb_listener = lookup(lookup(lookup(lookup(module.alb, "private", null), "alb", null), "aws_lb_listener", null), "arn", null)
+  listener = lookup(lookup(lookup(module.alb, "private", null), "listener", null), "arn", null)
 }
 
 
