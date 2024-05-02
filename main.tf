@@ -110,7 +110,7 @@ module "app" {
   desired_capacity = each.value["desired_capacity"]
   max_size         = each.value["max_size"]
   min_size         = each.value["min_size"]
-  priority         = each.value["priority"]
+  #priority         = each.value["priority"]
 
   vpc_id          = local.vpc_id
   sg_ingress_cidr = local.app_subnets_cidr
