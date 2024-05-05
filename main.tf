@@ -112,6 +112,7 @@ module "app" {
   max_size         = each.value["max_size"]
   min_size         = each.value["min_size"]
   priority         = each.value["priority"]
+  parameters       = each.value["parameters"]
 
 
   vpc_id          = local.vpc_id

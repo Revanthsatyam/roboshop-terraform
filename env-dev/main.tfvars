@@ -101,6 +101,7 @@ app = {
     max_size         = 3
     min_size         = 1
     priority         = 1
+    parameters       = []
   }
   catalogue = {
     instance_type    = "t3.micro"
@@ -109,6 +110,7 @@ app = {
     max_size         = 3
     min_size         = 1
     priority         = 2
+    parameters       = ["docdb"]
   }
   user = {
     instance_type    = "t3.micro"
@@ -117,6 +119,7 @@ app = {
     max_size         = 3
     min_size         = 1
     priority         = 3
+    parameters       = ["docdb"]
   }
   cart = {
     instance_type    = "t3.micro"
@@ -125,6 +128,7 @@ app = {
     max_size         = 3
     min_size         = 1
     priority         = 4
+    parameters       = []
   }
   payment = {
     instance_type    = "t3.micro"
@@ -133,6 +137,7 @@ app = {
     max_size         = 3
     min_size         = 1
     priority         = 5
+    parameters       = []
   }
   shipping = {
     instance_type    = "t3.micro"
@@ -141,5 +146,6 @@ app = {
     max_size         = 3
     min_size         = 1
     priority         = 6
+    parameters       = []
   }
 }
