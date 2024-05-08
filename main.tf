@@ -105,7 +105,7 @@ module "app" {
   zone_id                 = var.zone_id
   ssh_ingress_cidr        = var.ssh_ingress_cidr
   default_vpc_id          = var.default_vpc_id
-  monotiring_ingress_cidr = var.monotiring_ingress_cidr
+  monotiring_ingress_cidr = var.monitoring_ingress_cidr
 
   for_each         = var.app
   component        = each.key
