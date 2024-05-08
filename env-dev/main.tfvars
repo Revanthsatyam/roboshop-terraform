@@ -4,6 +4,7 @@ default_vpc_route_table_id = "rtb-0da9b051f5b28b71b"
 zone_id                    = "Z09651852G8MXYMFFQDTV"
 env                        = "dev"
 ssh_ingress_cidr           = ["172.31.16.110/32"]
+monotiring_ingress_cidr    = ["172.31.20.88/32"]
 
 vpc = {
   main = {
