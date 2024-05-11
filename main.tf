@@ -100,7 +100,7 @@ module "app" {
 #  depends_on = [module.alb, module.docdb, module.elasticache, module.rabbitmq, module.rds, module.vpc]
   source     = "git::https://github.com/Revanthsatyam/tf-module-app.git"
 
-  tags                    = merge(var.tags, each.key["tags"])
+  tags                    = merge(var.tags, each.value["tags"])
   env                     = var.env
   zone_id                 = var.zone_id
   ssh_ingress_cidr        = var.ssh_ingress_cidr
