@@ -103,6 +103,7 @@ app = {
     min_size         = 1
     priority         = 1
     parameters       = []
+    tags             = { Monitor_Nginx = "yes" }
   }
   catalogue = {
     instance_type    = "t3.micro"
@@ -112,6 +113,7 @@ app = {
     min_size         = 1
     priority         = 2
     parameters       = ["docdb"]
+    tags             = {}
   }
   user = {
     instance_type    = "t3.micro"
@@ -121,6 +123,7 @@ app = {
     min_size         = 1
     priority         = 3
     parameters       = ["docdb"]
+    tags             = {}
   }
   cart = {
     instance_type    = "t3.micro"
@@ -130,6 +133,7 @@ app = {
     min_size         = 1
     priority         = 4
     parameters       = []
+    tags             = {}
   }
   payment = {
     instance_type    = "t3.micro"
@@ -139,6 +143,7 @@ app = {
     min_size         = 1
     priority         = 5
     parameters       = ["rabbitmq"]
+    tags             = {}
   }
   shipping = {
     instance_type    = "t3.micro"
@@ -148,5 +153,6 @@ app = {
     min_size         = 1
     priority         = 6
     parameters       = ["rds"]
+    tags             = {}
   }
 }
