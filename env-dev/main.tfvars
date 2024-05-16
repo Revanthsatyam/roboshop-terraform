@@ -96,7 +96,7 @@ rabbitmq = {
 
 app = {
   frontend = {
-    instance_type    = "t3.micro"
+    instance_type    = "t3.small"
     port             = 80
     desired_capacity = 1
     max_size         = 3
