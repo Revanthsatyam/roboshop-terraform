@@ -127,9 +127,3 @@ module "app" {
   public_alb_name  = lookup(lookup(lookup(module.alb, "public", null), "alb", null), "dns_name", null)
   public_listener  = lookup(lookup(lookup(module.alb, "public", null), "listener", null), "arn", null)
 }
-
-
-
-
-
-
