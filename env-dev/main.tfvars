@@ -5,6 +5,7 @@ zone_id                    = "Z09651852G8MXYMFFQDTV"
 env                        = "dev"
 ssh_ingress_cidr           = ["172.31.16.110/32"]
 monitoring_ingress_cidr    = ["172.31.20.88/32"]
+acm_certificate_arn        = "arn:aws:acm:us-east-1:590183653013:certificate/9a857988-9301-4a9b-a0e5-563a71682a30"
 
 vpc = {
   main = {
