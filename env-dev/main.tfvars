@@ -6,10 +6,11 @@ env                        = "dev"
 ssh_ingress_cidr           = ["172.31.16.110/32"]
 monitoring_ingress_cidr    = ["172.31.20.88/32"]
 acm_certificate_arn        = "arn:aws:acm:us-east-1:590183653013:certificate/9a857988-9301-4a9b-a0e5-563a71682a30"
+kms_key_id                 = "arn:aws:kms:us-east-1:590183653013:key/86c6c9b1-d438-4118-a6c8-1ccc8fc4ce55"
 
 vpc = {
   main = {
-    cidr    = "10.0.0.0/16"
+    cidr = "10.0.0.0/16"
     subnets = {
       public = {
         public1 = { cidr = "10.0.0.0/24", az = "us-east-1a" }
@@ -104,7 +105,7 @@ app = {
     min_size         = 1
     priority         = 1
     parameters       = ["nexus"]
-    tags             = { Monitor_Nginx = "yes" }
+    tags = { Monitor_Nginx = "yes" }
   }
   catalogue = {
     instance_type    = "t3.small"
@@ -114,7 +115,7 @@ app = {
     min_size         = 1
     priority         = 2
     parameters       = ["docdb", "nexus"]
-    tags             = {}
+    tags = {}
   }
   user = {
     instance_type    = "t3.small"
@@ -124,7 +125,7 @@ app = {
     min_size         = 1
     priority         = 3
     parameters       = ["docdb", "nexus"]
-    tags             = {}
+    tags = {}
   }
   cart = {
     instance_type    = "t3.small"
@@ -134,7 +135,7 @@ app = {
     min_size         = 1
     priority         = 4
     parameters       = ["nexus"]
-    tags             = {}
+    tags = {}
   }
   payment = {
     instance_type    = "t3.small"
@@ -143,8 +144,8 @@ app = {
     max_size         = 3
     min_size         = 1
     priority         = 5
-    parameters       = ["rabbitmq","nexus"]
-    tags             = {}
+    parameters       = ["rabbitmq", "nexus"]
+    tags = {}
   }
   shipping = {
     instance_type    = "t3.small"
@@ -153,7 +154,7 @@ app = {
     max_size         = 3
     min_size         = 1
     priority         = 6
-    parameters       = ["rds","nexus"]
-    tags             = {}
+    parameters       = ["rds", "nexus"]
+    tags = {}
   }
 }
