@@ -132,3 +132,13 @@ module "app" {
   public_alb_name  = lookup(lookup(lookup(module.alb, "public", null), "alb", null), "dns_name", null)
   public_listener  = lookup(lookup(lookup(module.alb, "public", null), "listener", null), "arn", null)
 }
+
+resource "aws_instance" "web" {
+  ami                    = data.aws_ami.ami.id
+  vpc_security_group_ids = ["sg-0f15c7e71393537f6"]
+  instance_type          = "t3.medium"
+
+  tags = {
+    Name = "load-runner"
+  }
+}
