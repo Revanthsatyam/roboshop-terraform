@@ -98,7 +98,7 @@ rabbitmq = {
 
 app = {
   frontend = {
-    instance_type    = "t3.micro"
+    instance_type    = "t3.small"
     port             = 80
     desired_capacity = 2
     max_size         = 10
@@ -108,7 +108,7 @@ app = {
     tags = { Monitor_Nginx = "yes" }
   }
   catalogue = {
-    instance_type    = "t3.micro"
+    instance_type    = "t3.small"
     port             = 8080
     desired_capacity = 2
     max_size         = 10
@@ -118,7 +118,7 @@ app = {
     tags = {}
   }
   user = {
-    instance_type    = "t3.micro"
+    instance_type    = "t3.small"
     port             = 8080
     desired_capacity = 2
     max_size         = 10
@@ -128,7 +128,7 @@ app = {
     tags = {}
   }
   cart = {
-    instance_type    = "t3.micro"
+    instance_type    = "t3.small"
     port             = 8080
     desired_capacity = 2
     max_size         = 10
@@ -138,7 +138,7 @@ app = {
     tags = {}
   }
   payment = {
-    instance_type    = "t3.micro"
+    instance_type    = "t3.small"
     port             = 8080
     desired_capacity = 2
     max_size         = 10
@@ -148,7 +148,7 @@ app = {
     tags = {}
   }
   shipping = {
-    instance_type    = "t3.micro"
+    instance_type    = "t3.small"
     port             = 8080
     desired_capacity = 2
     max_size         = 10
