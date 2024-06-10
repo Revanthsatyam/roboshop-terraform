@@ -148,7 +148,7 @@ app = {
     tags = {}
   }
   shipping = {
-    instance_type    = "t3.small"
+    instance_type    = "t3.medium"
     port             = 8080
     desired_capacity = 2
     max_size         = 10
