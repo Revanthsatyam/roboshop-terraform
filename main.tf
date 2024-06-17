@@ -11,20 +11,20 @@ module "vpc" {
   env                        = var.env
 }
 
-# module "alb" {
-#   source = "git::https://github.com/Revanthsatyam/tf-module-alb.git"
-#
-#   for_each            = var.alb
-#   internal            = each.value["internal"]
-#   lb_type             = each.value["lb_type"]
-#   sg_port             = each.value["sg_port"]
-#   sg_ingress_cidr     = each.value["sg_ingress_cidr"]
-#   vpc_id              = each.value["internal"] ? local.vpc_id : var.default_vpc_id
-#   subnets             = each.value["internal"] ? local.app_subnets : data.aws_subnets.main.ids
-#   tags                = var.tags
-#   env                 = var.env
-#   acm_certificate_arn = var.acm_certificate_arn
-# }
+module "alb" {
+  source = "git::https://github.com/Revanthsatyam/tf-module-alb.git"
+
+  for_each            = var.alb
+  internal            = each.value["internal"]
+  lb_type             = each.value["lb_type"]
+  sg_port             = each.value["sg_port"]
+  sg_ingress_cidr     = each.value["sg_ingress_cidr"]
+  vpc_id              = each.value["internal"] ? local.vpc_id : var.default_vpc_id
+  subnets             = each.value["internal"] ? local.app_subnets : data.aws_subnets.main.ids
+  tags                = var.tags
+  env                 = var.env
+  acm_certificate_arn = var.acm_certificate_arn
+}
 
 module "docdb" {
   source = "git::https://github.com/Revanthsatyam/tf-module-docdb.git"
@@ -100,45 +100,45 @@ module "rabbitmq" {
   kms_key_id       = var.kms_key_id
 }
 
-# module "app" {
-#   depends_on = [module.alb, module.docdb, module.elasticache, module.rabbitmq, module.rds, module.vpc]
-#   source     = "git::https://github.com/Revanthsatyam/tf-module-app.git"
-#
-#   tags                    = merge(var.tags, each.value["tags"])
-#   env                     = var.env
-#   zone_id                 = var.zone_id
-#   ssh_ingress_cidr        = var.ssh_ingress_cidr
-#   default_vpc_id          = var.default_vpc_id
-#   monitoring_ingress_cidr = var.monitoring_ingress_cidr
-#   kms_key_id              = var.kms_key_id
-#
-#   for_each         = var.app
-#   component        = each.key
-#   port             = each.value["port"]
-#   instance_type    = each.value["instance_type"]
-#   desired_capacity = each.value["desired_capacity"]
-#   max_size         = each.value["max_size"]
-#   min_size         = each.value["min_size"]
-#   priority         = each.value["priority"]
-#   parameters       = each.value["parameters"]
-#
-#
-#   vpc_id          = local.vpc_id
-#   sg_ingress_cidr = local.app_subnets_cidr
-#   subnet_ids      = local.app_subnets
-#
-#   private_alb_name = lookup(lookup(lookup(module.alb, "private", null), "alb", null), "dns_name", null)
-#   private_listener = lookup(lookup(lookup(module.alb, "private", null), "listener", null), "arn", null)
-#   public_alb_name  = lookup(lookup(lookup(module.alb, "public", null), "alb", null), "dns_name", null)
-#   public_listener  = lookup(lookup(lookup(module.alb, "public", null), "listener", null), "arn", null)
-# }
-#
-# resource "aws_instance" "web" {
-#   ami                    = data.aws_ami.ami.id
-#   vpc_security_group_ids = ["sg-0f15c7e71393537f6"]
-#   instance_type          = "t3.medium"
-#
-#   tags = {
-#     Name = "load-runner"
-#   }
-# }
+module "app" {
+  depends_on = [module.alb, module.docdb, module.elasticache, module.rabbitmq, module.rds, module.vpc]
+  source     = "git::https://github.com/Revanthsatyam/tf-module-app.git"
+
+  tags                    = merge(var.tags, each.value["tags"])
+  env                     = var.env
+  zone_id                 = var.zone_id
+  ssh_ingress_cidr        = var.ssh_ingress_cidr
+  default_vpc_id          = var.default_vpc_id
+  monitoring_ingress_cidr = var.monitoring_ingress_cidr
+  kms_key_id              = var.kms_key_id
+
+  for_each         = var.app
+  component        = each.key
+  port             = each.value["port"]
+  instance_type    = each.value["instance_type"]
+  desired_capacity = each.value["desired_capacity"]
+  max_size         = each.value["max_size"]
+  min_size         = each.value["min_size"]
+  priority         = each.value["priority"]
+  parameters       = each.value["parameters"]
+
+
+  vpc_id          = local.vpc_id
+  sg_ingress_cidr = local.app_subnets_cidr
+  subnet_ids      = local.app_subnets
+
+  private_alb_name = lookup(lookup(lookup(module.alb, "private", null), "alb", null), "dns_name", null)
+  private_listener = lookup(lookup(lookup(module.alb, "private", null), "listener", null), "arn", null)
+  public_alb_name  = lookup(lookup(lookup(module.alb, "public", null), "alb", null), "dns_name", null)
+  public_listener  = lookup(lookup(lookup(module.alb, "public", null), "listener", null), "arn", null)
+}
+
+resource "aws_instance" "web" {
+  ami                    = data.aws_ami.ami.id
+  vpc_security_group_ids = ["sg-0f15c7e71393537f6"]
+  instance_type          = "t3.medium"
+
+  tags = {
+    Name = "load-runner"
+  }
+}
