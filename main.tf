@@ -221,7 +221,7 @@ module "eks" {
 
   # Cluster access entry
   # To add the current caller identity as an administrator
-  # enable_cluster_creator_admin_permissions = true
+  enable_cluster_creator_admin_permissions = true
 
 
   tags = var.tags
