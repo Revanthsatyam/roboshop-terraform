@@ -12,7 +12,7 @@ pipeline {
 
   stages {
 
-    stage ('Terraform Apply') {
+    stage ('Apply') {
       when {
         expression { params.ACTION == 'apply' }
       }
@@ -21,7 +21,7 @@ pipeline {
       }
     }
 
-    stage ('Terraform Apply') {
+    stage ('Destroy') {
       when {
         expression { params.ACTION == 'destroy' }
       }
