@@ -182,3 +182,12 @@ module "eks" {
 
   tags = var.tags
 }
+
+resource "aws_security_group_rule" "example" {
+  type              = "ingress"
+  from_port         = 443
+  to_port           = 443
+  protocol          = "tcp"
+  cidr_blocks       = var.ssh_ingress_cidr
+  security_group_id = module.eks.cluster_security_group_id
+}
