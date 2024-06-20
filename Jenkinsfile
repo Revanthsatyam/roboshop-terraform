@@ -6,7 +6,7 @@ pipeline {
   }
 
   parameters {
-    choice(name: 'ENV', choices: ['dev', 'prod'], description: 'Environment')
+    choice(name: 'ENV', choices: ['prod', 'dev'], description: 'Environment')
     choice(name: 'ACTION', choices: ['apply', 'destroy'], description: 'Pick Action')
   }
 
