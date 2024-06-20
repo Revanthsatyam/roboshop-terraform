@@ -17,7 +17,7 @@ pipeline {
         expression { params.ACTION == 'apply' }
       }
       steps {
-        sh 'make-${ENV}'
+        sh 'make ${ENV}'
       }
     }
 
@@ -26,7 +26,7 @@ pipeline {
         expression { params.ACTION == 'destroy' }
       }
       steps {
-        sh 'make-${ENV}-${ACTION}'
+        sh 'make ${ENV}-${ACTION}'
       }
     }
 
