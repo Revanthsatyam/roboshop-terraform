@@ -212,7 +212,7 @@ module "eks" {
     Blue = {
       min_size     = 1
       max_size     = 10
-      desired_size = 1
+      desired_size = 2
 
       instance_types = ["t3.large"]
       capacity_type  = "SPOT"
