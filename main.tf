@@ -235,7 +235,7 @@ resource "aws_security_group_rule" "https-to-eks" {
 }
 
 resource "aws_iam_role" "test_role" {
-  name = "${env}-eks-ssm-pm-ro"
+  name = "${var.env}-eks-ssm-pm-ro"
   assume_role_policy = jsonencode({
     "Version": "2012-10-17",
     "Statement": [
