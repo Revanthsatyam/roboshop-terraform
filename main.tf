@@ -233,3 +233,25 @@ resource "aws_security_group_rule" "https-to-eks" {
   cidr_blocks       = var.ssh_ingress_cidr
   security_group_id = module.eks.cluster_security_group_id
 }
+
+# resource "aws_iam_role" "test_role" {
+#   name = "${env}-eks-ssm-pm-ro"
+#   assume_role_policy = jsonencode({
+#     "Version": "2012-10-17",
+#     "Statement": [
+#       {
+#         "Effect": "Allow",
+#         "Principal": {
+#           "Federated": "${module.eks.oidc_provider_arn}"
+#         },
+#         "Action": "sts:AssumeRoleWithWebIdentity",
+#         "Condition": {
+#           "StringEquals": {
+#             "${module.eks.oidc_provider}:aud": "sts.amazonaws.com"
+#           }
+#         }
+#       }
+#     ]
+#   })
+#
+# }
