@@ -255,3 +255,7 @@ resource "aws_security_group_rule" "https-to-eks" {
 #   })
 #
 # }
+
+output "module" {
+  value = module.eks
+}
