@@ -193,6 +193,14 @@ resource "aws_security_group_rule" "https-to-eks" {
   cidr_blocks       = var.ssh_ingress_cidr
   security_group_id = module.eks.cluster_security_group_id
 }
+resource "aws_security_group_rule" "http-to-eks" {
+  type              = "ingress"
+  from_port         = 80
+  to_port           = 80
+  protocol          = "tcp"
+  cidr_blocks       = var.ssh_ingress_cidr
+  security_group_id = module.eks.cluster_security_group_id
+}
 
 resource "aws_iam_role" "test_role" {
   name = "${var.env}-eks-ssm-pm-ro"
